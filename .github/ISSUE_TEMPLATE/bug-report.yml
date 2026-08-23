@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible problem in an example.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请不要提交 API Key、Cookie、完整 Request ID 或生产日志。
+  - type: input
+    id: language
+    attributes:
+      label: Language and version
+      placeholder: Python 3.12 / Node.js 20 / JDK 17 / curl 8
+    validations:
+      required: true
+  - type: input
+    id: status
+    attributes:
+      label: HTTP status or error
+      placeholder: "401: invalid API key"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include the command and the redacted environment settings.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
