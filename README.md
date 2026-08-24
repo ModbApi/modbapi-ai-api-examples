@@ -29,6 +29,14 @@ cp .env.example .env
 
 所有示例都从环境变量读取配置，默认请求非流式响应；Python、Node.js 和 curl 额外提供流式示例。
 
+## 维护与发布
+
+- [维护机制和 Release 验证矩阵](./operations/maintenance.md)
+- [Release notes 模板](./operations/release-notes-template.md)
+- [30 天执行排期](./operations/30-day-plan.md)
+- 依赖由 Dependabot 每周检查；每周工作流会检查文档链接和无凭据的语法/编译结果。
+- 模型名称以服务端 `/models` 返回结果为准，模型变更请使用 [Model or endpoint update Issue](./.github/ISSUE_TEMPLATE/model-update.yml)。
+
 ## 接口约定
 
 ```text

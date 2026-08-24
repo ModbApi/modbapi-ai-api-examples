@@ -14,3 +14,5 @@ bash -n curl/streaming.sh
 ```
 
 请用全新虚拟环境或临时目录按对应 README 运行一次。提交内容不得包含 `.env`、真实 API Key、支付信息、用户数据或生产日志。模型名称、价格和可用性以实时文档为准，不要在示例中宣称无法验证的 SLA 或官方关系。
+
+维护和发布规则见 [`operations/maintenance.md`](./operations/maintenance.md)。每次 Release 需要记录验证日期、操作系统、Python/Node.js/JDK/curl 版本、测试模型、非流式和流式结果；未执行的项目必须明确标注，不得写成通过。
