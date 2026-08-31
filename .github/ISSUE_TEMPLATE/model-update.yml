@@ -1,0 +1,30 @@
+name: Model or endpoint update
+description: Report a model, endpoint, or compatibility change that affects the examples.
+title: "[Model] "
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先确认变更来自当前服务端 `/models` 或官方文档。不要提交 API Key、Cookie、订单号或完整用户请求。
+  - type: input
+    id: source
+    attributes:
+      label: Source and checked date
+      description: Provide the documentation URL or redacted `/models` output and the UTC date checked.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Which example, model name, endpoint, or protocol behavior should change?
+    validations:
+      required: true
+  - type: input
+    id: environments
+    attributes:
+      label: Environments tested
+      placeholder: Python 3.12 / Node.js 20 / JDK 17 / curl 8
+    validations:
+      required: true

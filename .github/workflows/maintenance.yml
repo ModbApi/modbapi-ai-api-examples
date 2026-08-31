@@ -1,0 +1,41 @@
+name: Weekly maintenance
+
+on:
+  schedule:
+    - cron: '30 2 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check documentation links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress './**/*.md'
+          fail: true
+
+  examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Validate examples without credentials
+        run: |
+          python -m py_compile python/*.py
+          node --check nodejs/chat-completion.mjs
+          node --check nodejs/streaming.mjs
+          (cd java && mvn -q -DskipTests compile)
+          bash -n curl/chat-completion.sh
+          bash -n curl/streaming.sh
